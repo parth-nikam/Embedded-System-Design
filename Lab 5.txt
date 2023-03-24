@@ -1,0 +1,16 @@
+#include<lpc21xx.h>
+int main()
+{
+	unsigned int val;
+	//Selecting channel no.2 for giving analog input
+	PINSEL1=0x04000000;
+	//Configure ADC's control register ADCR for the channel no.2
+	ADCR=0x00210404;
+	//Store the output of ADC in a seprate register
+	while((ADDR & 0x80000000) !=0x80000000)
+		val=ADDR & 0X0000FFC0;
+	    val=val>>6;
+	
+}
+
+	
